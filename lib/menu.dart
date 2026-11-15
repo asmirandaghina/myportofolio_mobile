@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ItemHomepage {
   final String name;
   final IconData icon;
+  final Color color;
 
-  ItemHomepage(this.name, this.icon);
+  ItemHomepage(this.name, this.icon, this.color);
 }
 
 class MyHomePage extends StatelessWidget {
@@ -15,9 +16,10 @@ class MyHomePage extends StatelessWidget {
   final String kelas = "PBP E";
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Proyek", Icons.folder),
-    ItemHomepage("Tambah Proyek", Icons.add_circle),
-    ItemHomepage("Logout", Icons.logout),
+    ItemHomepage("Lihat Perjalanan", Icons.timeline, Colors.blue),
+    ItemHomepage("Lihat Lakoni", Icons.palette, Colors.green),
+    ItemHomepage("Tambah Item", Icons.add_circle, Colors.orange),
+    ItemHomepage("Logout", Icons.logout, Colors.red),
   ];
 
   @override
