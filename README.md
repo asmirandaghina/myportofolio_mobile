@@ -1,17 +1,14 @@
-# myportofolio_mobile
+### Tugas 7
+1. Widget tree adalah susunan widget yang bertingkat dari satu widget akar, karena hampir semua elemen tampilan di Flutter adalah widget. Hubungan parent-child artinya sebuah widget membungkus widget lain: parent menampung dan mengatur posisi child-nya. Ada widget yang hanya punya satu child seperti Padding dan Center, dan ada yang punya banyak children seperti Column dan Row. Pada proyek saya, MaterialApp membungkus MyHomePage, lalu Scaffold berisi AppBar dan Padding, dan Padding membungkus Column yang berisi Row (tiga InfoCard) serta kartu ItemCard.
 
-A new Flutter project.
+2. Widget yang saya gunakan: (1) MaterialApp sebagai root yang mengatur tema dan halaman awal, (2) Scaffold sebagai kerangka halaman, (3) AppBar sebagai bar judul di atas, (4) Padding untuk memberi jarak di sekeliling isi, (5) Column untuk menyusun widget secara vertikal, (6) Row untuk menyusun tiga InfoCard secara horizontal, (7) Center untuk menengahkan isi, (8) SizedBox untuk memberi jarak kosong, (9) Text untuk menampilkan tulisan, (10) GridView.count untuk menampilkan kartu menu dalam kisi tiga kolom, (11) Card dan Container pada InfoCard untuk membuat kartu bersayang dengan lebar menyesuaikan layar, (12) Material dan InkWell pada ItemCard untuk warna latar, sudut membulat, dan efek sentuh, (13) Icon untuk menampilkan ikon, (14) SnackBar untuk pesan singkat di bawah layar saat tombol ditekan. Selain itu saya membuat widget sendiri yaitu MyApp, MyHomePage, InfoCard, dan ItemCard.
 
-## Getting Started
+3. MaterialApp berfungsi untuk menyiapkan konfigurasi aplikasi bergaya Material Design, seperti title, tema (ThemeData), dan halaman awal (home). Widget ini umumnya dipakai sebagai root karena menyediakan hal yang dibutuhkan widget Material di bawahnya, misalnya tema yang dibaca lewat Theme.of(context) dan ScaffoldMessenger untuk menampilkan SnackBar. Dengan begitu, pengaturan tema dan halaman awal cukup ditulis satu kali di akar aplikasi.
 
-This project is a starting point for a Flutter application.
+4. StatelessWidget tidak menyimpan state yang berubah, sehingga tampilannya hanya bergantung pada data yang diterima. Sedangkan StatefulWidget memiliki objek State yang menyimpan data yang dapat berubah, dan tampilannya diperbarui lewat setState(). Saya memilih StatelessWidget untuk tampilan statis seperti halaman menu saya, karena datanya tetap dan tidak perlu mengelola objek State. StatefulWidget dipakai ketika ada data yang berubah saat aplikasi berjalan, misalnya counter bawaan Flutter yang mengubah nilai _counter setiap tombol ditekan.
 
-A few resources to get you started if this is your first Flutter project:
+5. BuildContext adalah objek yang menunjukkan posisi sebuah widget di dalam widget tree. Flutter memberikannya sebagai parameter pada method build(BuildContext context). Penting karena dengan context, sebuah widget dapat mencari informasi dari widget di atasnya. Pada proyek saya, context dipakai di Theme.of(context) untuk mengambil tema, MediaQuery.of(context) untuk membaca lebar layar di InfoCard, dan ScaffoldMessenger.of(context) untuk menampilkan SnackBar.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+6. Hot reload memasukkan perubahan kode ke aplikasi yang sedang berjalan lalu membangun ulang tampilannya, dengan state aplikasi tetap terjaga dan prosesnya sangat cepat. Hot restart memulai ulang aplikasi dari awal sehingga state hilang, tetapi tetap lebih cepat daripada menjalankan ulang aplikasi sepenuhnya. Hot reload tidak cukup ketika kita mengubah kode yang hanya dibaca saat aplikasi mulai, misalnya isi main() atau nilai awal variabel, sehingga perlu hot restart. Full restart diperlukan ketika kita mengubah kode native (Android/iOS) atau menambah dependensi di pubspec.yaml.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pengunaan AI: Saya menggunakan Claude untuk membantu memahammi konsep Flutter, memasang Flutter di Windows, termasuk mengatasi error saat ekstraksi dan kesalahan perintah git. Claude juga membantu menjelaskan cara menambahkan atribut warna. 
