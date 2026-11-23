@@ -8,6 +8,7 @@ class ItemHomepage {
   final Color color;
 
   ItemHomepage(this.name, this.icon, this.color);
+  
 }
 
 class MyHomePage extends StatelessWidget {
@@ -21,6 +22,7 @@ class MyHomePage extends StatelessWidget {
     ItemHomepage("Lihat Perjalanan", Icons.timeline, Colors.blue),
     ItemHomepage("Lihat Lakoni", Icons.palette, Colors.green),
     ItemHomepage("Tambah Item", Icons.add_circle, Colors.orange),
+    ItemHomepage("Tambah Pengalaman", Icons.work, Colors.purple),
     ItemHomepage("Logout", Icons.logout, Colors.red),
   ];
 
