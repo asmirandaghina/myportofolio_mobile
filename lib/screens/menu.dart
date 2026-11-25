@@ -8,7 +8,6 @@ class ItemHomepage {
   final Color color;
 
   ItemHomepage(this.name, this.icon, this.color);
-  
 }
 
 class MyHomePage extends StatelessWidget {
@@ -33,17 +32,14 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'MyPortfolio',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       drawer: const LeftDrawer(),
       // Body halaman utama dengan padding di sekelilingnya.
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,12 +70,12 @@ class MyHomePage extends StatelessWidget {
                   ),
                   // GridView menampilkan kartu tombol dalam tata letak kisi 3 kolom.
                   GridView.count(
-                    primary: true,
+                    primary: false,
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(20),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     crossAxisCount: 3,
-                    // shrinkWrap agar ukuran kisi menyesuaikan tinggi konten anak.
                     shrinkWrap: true,
                     children: items.map((ItemHomepage item) {
                       return ItemCard(item);
@@ -114,10 +110,7 @@ class InfoCard extends StatelessWidget {
         // Menyusun teks title dan content secara vertikal.
         child: Column(
           children: [
-            Text(
-              title,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
+            Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8.0),
             Text(content),
           ],
